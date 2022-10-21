@@ -8,12 +8,12 @@ import CardActions from "@mui/material/CardActions";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Typography from "@mui/material/Typography";
 
-function Product({ product }) {
+function Product({ product, onAddToCart }) {
   return (
     <Card sx={{ maxWidth: "100%" }}>
       <CardMedia
         sx={{ height: 0, paddingTop: "56.25%" }}
-        img={product.img}
+        image={product.image.url}
         tittle={product.name}
       />
       <CardContent>
@@ -21,17 +21,21 @@ function Product({ product }) {
           <Typography variant="h5" gutterBottom>
             {product.name}
           </Typography>
-          <Typography variant="h5">{product.price}</Typography>
-          <Typography variant="body2" color="textSecondary">
-            {product.description}
+          <Typography variant="h5">
+            {product.price.formatted_with_code}
           </Typography>
+          <Typography
+            dangerouslySetInnerHTML={{ __html: product.description }}
+            variant="body2"
+            color="textSecondary"
+          />
         </div>
       </CardContent>
       <CardActions
         disableSpacing
         sx={{ display: "flex", justifyContent: "flex-end" }}
       >
-        <IconButton>
+        <IconButton onClick={() => onAddToCart(product.id, 1)}>
           <AddShoppingCartIcon />
         </IconButton>
       </CardActions>

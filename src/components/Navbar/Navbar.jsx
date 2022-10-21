@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { ShoppingCart } from "@mui/icons-material";
 import logo from "../../assets/commerce.png";
-function Navbar() {
+function Navbar({ totalItems }) {
   return (
     <>
       <AppBar
@@ -43,7 +43,7 @@ function Navbar() {
           <div sx={{ flexGrow: 1 }} />
 
           <IconButton aria-label="Show cart items" color="inherit">
-            <Badge badgeContent={2} color="secondary">
+            <Badge badgeContent={totalItems} color="secondary">
               <ShoppingCart />
             </Badge>
           </IconButton>
