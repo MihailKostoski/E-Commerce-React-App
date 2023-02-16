@@ -7,6 +7,7 @@ import {
   CardContent,
   CardMedia,
 } from "@mui/material";
+
 function CartItem({ item, handleUpdateCartQty, handleRemoveFromCart }) {
   return (
     <div>
@@ -27,7 +28,7 @@ function CartItem({ item, handleUpdateCartQty, handleRemoveFromCart }) {
             <Button
               type="button"
               size="small"
-              /*onClick={() => handleUpdateCartQty(item.id, item.quantity - 1)}*/
+              onClick={() => handleUpdateCartQty(item.id, item.quantity - 1)}
             >
               -
             </Button>
@@ -35,7 +36,7 @@ function CartItem({ item, handleUpdateCartQty, handleRemoveFromCart }) {
             <Button
               type="button"
               size="small"
-              /*  onClick={() => handleUpdateCartQty(item.id, item.quantity + 1)}*/
+              onClick={() => handleUpdateCartQty(item.id, item.quantity + 1)}
             >
               +
             </Button>
@@ -44,7 +45,7 @@ function CartItem({ item, handleUpdateCartQty, handleRemoveFromCart }) {
             variant="contained"
             type="button"
             color="secondary"
-            /*onClick={() => handleRemoveFromCart(item.id)}*/
+            onClick={() => handleRemoveFromCart(item.id)}
           >
             Remove
           </Button>

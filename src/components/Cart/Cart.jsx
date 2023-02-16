@@ -20,7 +20,7 @@ function Cart({
   const FilledCart = () => (
     <>
       <Grid container spacing={3}>
-        {cart.line_items?.map((item) => (
+        {cart?.line_items?.map((item) => (
           <Grid item xs={12} sm={4} key={item.id}>
             <CartItem
               item={item}
@@ -44,20 +44,22 @@ function Cart({
           >
             Empty Cart
           </Button>
-          <Button
-            size="large"
-            type="button"
-            variant="contained"
-            color="primary"
-          >
-            Checkout
-          </Button>
+          <Link to="/checkout">
+            <Button
+              size="large"
+              type="button"
+              variant="contained"
+              color="primary"
+            >
+              Checkout
+            </Button>
+          </Link>
         </div>
       </div>
     </>
   );
 
-  if (!cart.line_items) return "Loading...";
+  if (!cart?.line_items) return "Loading...";
   return (
     <Container sx={{ marginTop: 10 }}>
       <Typography variant="h5" gutterBottom>
